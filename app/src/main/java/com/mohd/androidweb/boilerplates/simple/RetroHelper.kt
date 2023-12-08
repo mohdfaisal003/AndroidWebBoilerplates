@@ -7,13 +7,6 @@ class RetroHelper {
 
     val baseUrl = "https://zenquotes.io/api/"
 
-    val retrofit: Retrofit by lazy {
-        Retrofit.Builder()
-            .baseUrl(baseUrl)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-    }
-
     val apiService: ApiCallBacks by lazy {
         Retrofit.Builder()
             .baseUrl(baseUrl)

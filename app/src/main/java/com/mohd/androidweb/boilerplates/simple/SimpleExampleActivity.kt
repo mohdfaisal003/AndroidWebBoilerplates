@@ -4,6 +4,9 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.mohd.androidweb.boilerplates.databinding.ActivitySimpleExampleBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 import retrofit2.Call
 import retrofit2.Callback
@@ -18,8 +21,19 @@ class SimpleExampleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySimpleExampleBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.show()
+        supportActionBar?.title = "Random Quotes"
 
         apiCall()
+        binding.refreshBtn.setOnClickListener {
+            refreshQuote()
+        }
+    }
+
+    private fun refreshQuote() {
+        CoroutineScope(Dispatchers.IO).launch {
+            apiCall()
+        }
     }
 
     private fun apiCall() {
@@ -32,7 +46,7 @@ class SimpleExampleActivity : AppCompatActivity() {
                     if (response.code() > 201 && response.code() >= 400) {
                         return
                     } else {
-                        Log.d("SimpleExampleActivity",response.body()?.get(0).toString())
+                        binding.quoteTV.text = response.body()?.get(0)?.q
                     }
             }
 
