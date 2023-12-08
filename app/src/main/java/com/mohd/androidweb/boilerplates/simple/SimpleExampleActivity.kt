@@ -31,9 +31,7 @@ class SimpleExampleActivity : AppCompatActivity() {
     }
 
     private fun refreshQuote() {
-        CoroutineScope(Dispatchers.IO).launch {
-            apiCall()
-        }
+        apiCall()
     }
 
     private fun apiCall() {
