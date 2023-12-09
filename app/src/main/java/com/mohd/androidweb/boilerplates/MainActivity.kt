@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.mohd.androidweb.boilerplates.databinding.ActivityMainBinding
 import com.mohd.androidweb.boilerplates.simple.SimpleExampleActivity
+import com.mohd.androidweb.boilerplates.with_client.WithClientAndInterceptorActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,6 +18,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.simpleRetrofitBtn.setOnClickListener {
             val intent = Intent(this,SimpleExampleActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.okhttpInterceptorRetrofitBtn.setOnClickListener {
+            val intent = Intent(this,WithClientAndInterceptorActivity::class.java)
             startActivity(intent)
         }
     }

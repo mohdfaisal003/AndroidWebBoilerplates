@@ -15,8 +15,13 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Simple Retrofit Example"
+            android:text="Simple Retrofit Request"
             android:id="@+id/simpleRetrofitBtn"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="OkHttp &amp; Header Interceptor Retrofit Request"
+            android:id="@+id/okhttpInterceptorRetrofitBtn"/>
 
     </LinearLayout>
 
