@@ -21,8 +21,6 @@ class SimpleExampleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySimpleExampleBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        supportActionBar?.show()
-        supportActionBar?.title = "Random Quotes"
 
         apiCall()
         binding.refreshBtn.setOnClickListener {
